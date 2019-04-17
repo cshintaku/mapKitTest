@@ -47,6 +47,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // 追従方法の設定
         mapView.userTrackingMode = MKUserTrackingMode.follow
         mapView.userTrackingMode = MKUserTrackingMode.followWithHeading
+        
+        // 長押しのUIGestureRecognizerを生成.
+        
+        let myLongPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(
+            target: self, action: #selector(recognizeLongPress))
+        self.view.addGestureRecognizer(myLongPress)
     }
     
     //  MARK: - method
@@ -65,6 +71,36 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    @objc func recognizeLongPress(sender: UILongPressGestureRecognizer) {
+        // 長押しの最中に何度もピンを生成しないようにする.
+        if sender.state != UIGestureRecognizer.State.began { return }
+        
+        // 長押しした地点の座標を取得.
+        let location = sender.location(in: mapView)
+        
+        // locationをCLLocationCoordinate2Dに変換.
+        let myCoordinate: CLLocationCoordinate2D = mapView.convert(location, toCoordinateFrom: mapView)
+        
+        // ピンを生成.
+        let newPin: MKPointAnnotation = MKPointAnnotation()
+        
+        // 座標を設定.
+        newPin.coordinate = myCoordinate
+        
+        // タイトルを設定.
+        newPin.title = "タイトル"
+        
+        // サブタイトルを設定.
+        newPin.subtitle = "サブタイトル"
+        
+        // MapViewにピンを追加.
+        mapView.addAnnotation(newPin)
+    }
+    
+    //  MARK: - delegate
+    //    --------------------------------------------------------------------------------
+    //    locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    //    --------------------------------------------------------------------------------
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("タイミング確認")
         // 現在地にピンを立てる
