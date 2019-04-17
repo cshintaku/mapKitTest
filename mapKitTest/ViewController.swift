@@ -64,6 +64,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             locationManager.startUpdatingLocation()
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("タイミング確認")
+        // 現在地にピンを立てる
+        if let coordinate = locations.last?.coordinate {
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate
+            mapView.addAnnotation(pin)
+        }
+        
+    }
 
 }
 
