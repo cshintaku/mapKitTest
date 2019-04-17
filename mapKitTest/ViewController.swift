@@ -33,7 +33,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.delegate = self
         
         // mapView.userLocation.coordinate ← この書き方で現在地を取得
-        var region:MKCoordinateRegion = mapView.region        
+        var region:MKCoordinateRegion = mapView.region
         region.center = mapView.userLocation.coordinate
         
         // 縮尺を設定
@@ -63,7 +63,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func setupLocationManager() {
         locationManager = CLLocationManager()
         guard let locationManager = locationManager else { return }
-        locationManager.requestWhenInUseAuthorization()
+//        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         
         let status = CLLocationManager.authorizationStatus()
         if status == .authorizedWhenInUse {

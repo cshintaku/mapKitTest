@@ -22,6 +22,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>現在地と時間を通知する為には[常に許可]を選択してください。後から設定を変更する事もできます。</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)内で位置情報を使用します。</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)は、位置情報を使用します。</string>
 	<key>UILaunchStoryboardName</key>
