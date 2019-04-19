@@ -11,6 +11,7 @@ import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager: CLLocationManager!
@@ -43,8 +44,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.setRegion(region, animated:true)
         
         // 表示タイプを航空写真と地図のハイブリッドに設定
-        mapView.mapType = MKMapType.hybrid
-        // mapView.mapType = MKMapType.standard
+//        mapView.mapType = MKMapType.hybrid
+         mapView.mapType = MKMapType.standard
         // mapView.mapType = MKMapType.satellite
 
         // 進行方向を画面上に設定
