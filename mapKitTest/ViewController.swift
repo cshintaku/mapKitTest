@@ -11,7 +11,7 @@ import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-    @IBOutlet weak var searchBar: UISearchBar!
+//    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager: CLLocationManager!
@@ -145,9 +145,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     
     /*
-     -[*] 現在地と目的地までのルートを描画
-     -[] ピンを消してもルートが表示されたまま
-     -[] ルートを描画した際のズームがぎこちない
+     -[] サーチバーで位置情報を検索
+     -[] 候補を表示
+     -[] 選択したものまでのルートを表示
+     -[]
+     -[]
      */
     
     //  MARK: - delegate
@@ -216,6 +218,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 //        // annotationを設定.
 //        myPinView.annotation = annotation
 //        return myPinView
+//    }
+    
+    //  MARK: - action
+    //    --------------------------------------------------------------------------------
+    //    viewTapped(_ sender: Any)
+    //    --------------------------------------------------------------------------------
+//    @IBAction func viewTapped(_ sender: Any) {
+//        self.view.endEditing(true)
 //    }
 }
 
